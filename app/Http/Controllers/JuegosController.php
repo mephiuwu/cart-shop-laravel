@@ -16,7 +16,7 @@ class JuegosController extends Controller
         return view('juegos.index', compact('juegos'));
     }
 
-    public function get_juegos()
+    public function getAll()
     {
         $data = Juegos::all();
         return DataTables::of($data)->make(true);
@@ -27,7 +27,7 @@ class JuegosController extends Controller
         return view('juegos.crear');
     }
 
-    public function process_crear(Request $request)
+    public function processCreate(Request $request)
     {
         try {
             $validacion = $this->validar($request);
@@ -61,7 +61,7 @@ class JuegosController extends Controller
         return view('juegos.editar', compact('juego'));
     }
 
-    public function process_editar(Request $request)
+    public function processEdit(Request $request)
     {
         try {
             $validacion = $this->validar($request);

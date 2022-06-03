@@ -25,8 +25,8 @@ Route::prefix('juegos')->group(function () {
     Route::get('/editar/{id}', [JuegosController::class, 'editar'])->name('juegos.editar');
 
     //procesos
-    Route::get('/get_juegos', [JuegosController::class, 'get_juegos'])->name('juegos.getJuegos');
-    Route::post('/process_crear', [JuegosController::class, 'process_crear'])->name('juegos.process_crear');
-    Route::post('/process_editar', [JuegosController::class, 'process_editar'])->name('juegos.process_editar');
+    Route::get('/getAll', [JuegosController::class, 'getAll'])->name('juegos.getJuegos');
+    Route::post('/processCreate', [JuegosController::class, 'processCreate'])->name('juegos.processCreate');
+    Route::post('/processEdit', [JuegosController::class, 'processEdit'])->name('juegos.processEdit');
     Route::post('/eliminar', [JuegosController::class, 'eliminar'])->name('juegos.eliminar');
 });

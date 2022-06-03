@@ -4,7 +4,7 @@
 @extends('layouts.main')
 @section('rightbar-content')
     <div class="contentbar">
-        <form action="/juegos/process_editar" id="formularioJuego" method="post">
+        <form action="/juegos/processEdit" id="formularioJuego" method="post">
             @csrf
             <input type="hidden" name="id" value="{{$juego->id}}">
             <div class="row">

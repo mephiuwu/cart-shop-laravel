@@ -12,7 +12,7 @@ const listadoJuegos = function() {
         destroy: true,
         processing: true,
         ajax: {
-            url: "/juegos/get_juegos",
+            url: "/juegos/getAll",
             type: 'get',
         },
         columns: [{

@@ -29,7 +29,7 @@ function radioImagen(tipo){
 function enviarFormulario() {
     var formData = new FormData(document.getElementById("formularioJuego"));
     $.ajax({
-        url: "/juegos/process_editar",
+        url: "/juegos/processEdit",
         type: "post",
         dataType: "json",
         data: formData,
