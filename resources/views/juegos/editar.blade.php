@@ -85,7 +85,7 @@
                             <div class="form-group row">
                                 <label for="imagen" class="col-sm-12 col-form-label">Url imagen</label>
                                 <div class="col-sm-12">
-                                    <input type="text" name="imagen" id="imagen" class="form-control font-15" placeholder="Url">
+                                    <input type="text" name="imagen" id="imagen" class="form-control font-15" value="{{$juego->imagen}}" placeholder="Url">
                                 </div>
                             </div>
                         </div>
@@ -105,5 +105,32 @@
     </div>
 @endsection
 @section('script')
+    <script>
+        function radioImagen(tipo){
+            if(tipo == 2){
+                $('#tipoImagen').html(`
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="imagen" class="col-sm-12 col-form-label">Imagen / Url</label>
+                            <div class="col-sm-12">
+                                <input type="file" class="form-control font-15" name="imagen" accept="image/*" value="{{$juego->imagen}}" required>
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }else{
+                $('#tipoImagen').html(`
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <label for="imagen" class="col-sm-12 col-form-label">Url imagen</label>
+                            <div class="col-sm-12">
+                                <input type="text" name="imagen" id="imagen" class="form-control font-15" value="{{$juego->imagen}}" placeholder="Url">
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+        }
+    </script>
     <script src="{{ asset('js/productos/editar.js') }}"></script>
 @endsection
