@@ -4,6 +4,7 @@ $(document).ready(function () {
     $('.select2-single').select2();
 });
 
+
 function radioImagen(tipo){
     if(tipo == 2){
         $('#tipoImagen').html(`

@@ -104,9 +104,9 @@
                     <div class="card m-b-30">
                         <div class="card-body">
                             <div class="form-group row">
-                                <label for="amount" class="col-sm-12 col-form-label">Cantidad</label>
+                                <label for="quantity" class="col-sm-12 col-form-label">Cantidad</label>
                                 <div class="col-sm-12">
-                                    <input type="number" name="amount" id="amount" class="form-control font-15" placeholder="0" value="{{$juego->amount}}" min="0">
+                                    <input type="number" name="quantity" id="quantity" class="form-control font-15" placeholder="0" value="{{$juego->amount}}" min="0">
                                 </div>
                             </div>
                             <div class="form-group row">

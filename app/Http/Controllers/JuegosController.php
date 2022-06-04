@@ -47,9 +47,13 @@ class JuegosController extends Controller
             $juego = Juegos::create([
                 'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
+                'imagen' => $request->imagen,
+                'quantity' => $request->quantity,
+                'price' => $request->price,
                 'estado' => $request->estado,
-                'imagen' => $request->imagen
+                'console_id' => $request->console,
             ]);
+
             return response()->json(['status' => 200, 'juego' => $juego, 'message' => 'Juego creado exitosamente.']);
         } catch (\Throwable $th) {
             return response()->json(['status' => 500, 'message' => 'Ha ocurrido un error interno', 'th' => $th->getMessage()]);
@@ -80,11 +84,14 @@ class JuegosController extends Controller
             //pasa la validación
             $juego = Juegos::find($request->id)->update([
                 'nombre' => $request->nombre,
-                'url' => $request->url,
                 'descripcion' => $request->descripcion,
+                'imagen' => $request->imagen,
+                'quantity' => $request->quantity,
+                'price' => $request->price,
                 'estado' => $request->estado,
-                'imagen' => $request->imagen
+                'console_id' => $request->console,
             ]);
+
             return response()->json(['status' => 200, 'juego' => $juego, 'message' => 'Juego editado exitosamente.']);
         } catch (\Throwable $th) {
             return response()->json(['status' => 500, 'message' => 'Ha ocurrido un error interno', 'th' => $th->getMessage()]);
@@ -111,12 +118,16 @@ class JuegosController extends Controller
         $validacion = Validator::make($request->all(), [
             'nombre' => ['required', 'string', 'max:100'],
             'descripcion' => ['required', 'string'],
-            'estado' => ['required', Rule::in([1, 0])],
             'imagen' => $imagenValidar,
+            'quantity' => ['required', 'integer'],
+            'price' => ['required', 'integer'],
+            'estado' => ['required', Rule::in([1, 0])],
             'console' => ['required'],
         ], [], [
             'nombre' => 'Nombre',
             'descripcion' => 'Descripción',
+            'quantity' => 'Cantidad',
+            'price' => 'Precio',
             'estado' => 'Estado',
             'console' => 'Consola',
         ]);
