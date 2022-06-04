@@ -10,9 +10,19 @@
         <!-- Start Navigationbar -->
         <div class="navigationbar">
             <ul class="vertical-menu">
+                @if (Auth::check() && Auth::user()->rol_id == 1)
+                    <li>
+                        <a href="javaScript:void();">
+                        <img src={{ asset('assets/images/svg-icon/dashboard.svg') }} class="img-fluid" alt="dashboard"><span>Modulos</span><i class="feather icon-chevron-right pull-right"></i>
+                        </a>
+                        <ul class="vertical-submenu">
+                            <li><a href="{{route('juegos.index')}}">Juegos</a></li>
+                        </ul>
+                    </li>
+                @endif
                 <li>
                     <a href="javaScript:void();">
-                      <img src={{ asset('assets/images/svg-icon/dashboard.svg') }} class="img-fluid" alt="dashboard"><span>Modulos</span><i class="feather icon-chevron-right pull-right"></i>
+                    <img src={{ asset('assets/images/svg-icon/dashboard.svg') }} class="img-fluid" alt="dashboard"><span>Store</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="{{route('juegos.index')}}">Juegos</a></li>
