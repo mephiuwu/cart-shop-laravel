@@ -31,7 +31,7 @@
                             <table class="display table table-striped table-bordered" id="table-juegos">
                                 <thead>
                                     <tr>
-                                        <th>Url</th>
+                                        <th>Precio</th>
                                         <th>Name</th>
                                         <th>Image</th>
                                         <th>Acciones</th>
@@ -41,7 +41,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Url</th>
+                                        <th>Precio</th>
                                         <th>Name</th>
                                         <th>Image</th>
                                         <th>Acciones</th>

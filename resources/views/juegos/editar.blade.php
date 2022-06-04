@@ -1,5 +1,5 @@
 @section('title')
-    Editar producto
+    Editar juego
 @endsection
 @extends('layouts.main')
 @section('rightbar-content')
@@ -11,7 +11,7 @@
                 <div class="col-lg-6 col-xl-7">
                     <div class="card m-b-30">
                         <div class="card-header">
-                            <h5 class="card-title">Producto</h5>
+                            <h5 class="card-title">Juego</h5>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
@@ -21,19 +21,30 @@
                                         value="{{ $juego->nombre }}" placeholder="Nombre" required>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="url" class="col-sm-12 col-form-label">Url (ej:
                                     https://latamwin-gp3.discreetgaming.com/cwguestlogin.do?bankId=3006&gameId=806&lang=es)</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control font-15" id="url" name="url"
                                         value="{{ $juego->url }}" placeholder="Url del juego" required>
                                 </div>
+                            </div> --}}
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label">Consola</label>
+                                <div class="col-sm-12">
+                                    <select class="select2-single form-control" name="console">
+                                        <option value="{{$juego->consola->id}}" selected disabled hidden>{{$juego->consola->nombre}}</option>
+                                        @foreach ($consoles as $console)
+                                            <option value="{{$console->id}}">{{$console->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-12 col-form-label">Descripción</label>
                                 <div class="col-sm-12">
                                     <textarea class="form-control" name="descripcion" id="descripcion" rows="3"
-                                        placeholder="Descripción del producto" required>{{ $juego->descripcion }}</textarea>
+                                        placeholder="Descripción del juego" required>{{ $juego->descripcion }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -90,6 +101,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card m-b-30">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="amount" class="col-sm-12 col-form-label">Cantidad</label>
+                                <div class="col-sm-12">
+                                    <input type="number" name="amount" id="amount" class="form-control font-15" placeholder="0" value="{{$juego->amount}}" min="0">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="price" class="col-sm-12 col-form-label">Precio</label>
+                                <div class="col-sm-12">
+                                    <input type="number" class="form-control" id="price" name="price" placeholder="$ 0" value="{{$juego->price}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -98,7 +125,7 @@
                 <a href="{{ route('juegos.index') }}" class="btn btn-primary-rgba">Volver</a>
             </div>
             <div class="col-xl-6">
-                <button class="btn btn-primary-rgba" onclick="enviarFormulario()">editar</button>
+                <button class="btn btn-primary-rgba" onclick="enviarFormulario()">Editar</button>
             </div>
         </div>
         <br>

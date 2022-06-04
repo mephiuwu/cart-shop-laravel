@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJuegosTable extends Migration
+class CreateConsolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,10 @@ class CreateJuegosTable extends Migration
      */
     public function up()
     {
-        Schema::create('juegos', function (Blueprint $table) {
+        Schema::create('consoles', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->nullable();
-            $table->string('url')->nullable();
-            $table->string('descripcion')->nullable();
-            $table->string('imagen')->nullable();
-            $table->integer('amount')->nullable();
-            $table->integer('price')->nullable();
             $table->enum('estado',['1','0'])->default('1');
-            $table->foreignId('console_id')->nullable()->references('id')->on('consoles')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -34,6 +28,6 @@ class CreateJuegosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('juegos');
+        Schema::dropIfExists('consoles');
     }
 }

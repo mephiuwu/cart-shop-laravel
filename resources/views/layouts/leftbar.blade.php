@@ -25,7 +25,7 @@
                     <img src={{ asset('assets/images/svg-icon/dashboard.svg') }} class="img-fluid" alt="dashboard"><span>Store</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
-                        <li><a href="{{route('juegos.index')}}">Juegos</a></li>
+                        <li><a href="{{route('store.games')}}">Juegos</a></li>
                     </ul>
                 </li>
             </ul>

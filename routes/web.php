@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JuegosController;
+use App\Http\Controllers\Store\GamesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
         return view('layouts.main');
+    });
+
+    Route::prefix('store')->group(function () {
+        Route::get('/games', [GamesController::class, 'getGamesStore'])->name('store.games');
     });
 });
 

@@ -16,12 +16,12 @@ const listadoJuegos = function() {
             type: 'get',
         },
         columns: [{
-                data: 'url',
-                name: 'url',
+                data: 'price',
+                name: 'price',
                 searchable: true,
                 "render": function(data, type, row, full) {
                     return `
-                    <a href="${data}" target="_blank">${data}</a>
+                    $ ${data}
                     `;
                 }
             },
@@ -55,7 +55,7 @@ const listadoJuegos = function() {
         ],
         columnDefs: [{
             targets: 0,
-            width: "50%",
+            width: "30%",
         }]
     });
 }

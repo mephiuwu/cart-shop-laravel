@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Consoles;
 use App\Models\Juegos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -24,7 +25,8 @@ class JuegosController extends Controller
 
     public function crear()
     {
-        return view('juegos.crear');
+        $consoles = Consoles::all();
+        return view('juegos.crear', compact('consoles'));
     }
 
     public function processCreate(Request $request)
@@ -44,7 +46,6 @@ class JuegosController extends Controller
             //pasa la validación
             $juego = Juegos::create([
                 'nombre' => $request->nombre,
-                'url' => $request->url,
                 'descripcion' => $request->descripcion,
                 'estado' => $request->estado,
                 'imagen' => $request->imagen
@@ -57,8 +58,9 @@ class JuegosController extends Controller
 
     public function editar($id)
     {
-        $juego = Juegos::findOrFail($id);
-        return view('juegos.editar', compact('juego'));
+        $juego = Juegos::with('consola')->findOrFail($id);
+        $consoles = Consoles::all();
+        return view('juegos.editar', compact('juego', 'consoles'));
     }
 
     public function processEdit(Request $request)
@@ -108,15 +110,15 @@ class JuegosController extends Controller
 
         $validacion = Validator::make($request->all(), [
             'nombre' => ['required', 'string', 'max:100'],
-            'url' => ['required', 'string'],
             'descripcion' => ['required', 'string'],
             'estado' => ['required', Rule::in([1, 0])],
             'imagen' => $imagenValidar,
+            'console' => ['required'],
         ], [], [
             'nombre' => 'Nombre',
-            'url' => 'Url',
             'descripcion' => 'Descripción',
             'estado' => 'Estado',
+            'console' => 'Consola',
         ]);
 
         if ($validacion->fails()) {

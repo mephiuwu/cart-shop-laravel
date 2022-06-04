@@ -1,7 +1,13 @@
 @section('title')
-    Agregar producto
+    Agregar juego
 @endsection
 @extends('layouts.main')
+
+@section('style')
+<!-- Select2 css -->
+<link href="{{ asset('assets/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+@endsection 
+
 @section('rightbar-content')
     <div class="contentbar">
         <form action="/juegos/processCreate" id="formularioJuego" method="post" enctype="multipart/form-data">
@@ -10,7 +16,7 @@
                 <div class="col-lg-6 col-xl-7">
                     <div class="card m-b-30">
                         <div class="card-header">
-                            <h5 class="card-title">Producto</h5>
+                            <h5 class="card-title">Juego</h5>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
@@ -20,22 +26,33 @@
                                         placeholder="Nombre">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="url" class="col-sm-12 col-form-label">Url (ej:
                                     https://latamwin-gp3.discreetgaming.com/cwguestlogin.do?bankId=3006&gameId=806&lang=es)</label>
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control font-15" id="url" name="url"
                                         placeholder="Url del juego">
                                 </div>
+                            </div> --}}
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label">Consola</label>
+                                <div class="col-sm-12">
+                                    <select class="select2-single form-control" name="console">
+                                        <option value="" selected disabled>Seleccione la consola</option>
+                                        @foreach ($consoles as $console)
+                                            <option value="{{$console->id}}">{{$console->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-12 col-form-label">Descripción</label>
                                 <div class="col-sm-12">
                                     <textarea class="form-control" name="descripcion" id="descripcion" rows="3"
-                                        placeholder="Descripción del producto"></textarea>
+                                        placeholder="Descripción del juego"></textarea>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row pb-2">
                                 <label for="estado" class="col-sm-12 col-form-label">Estado</label>
                                 <div class="col-sm-12">
                                     <select name="estado" id="estado" class="form-control font-15">
@@ -79,6 +96,23 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="card m-b-30">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="amount" class="col-sm-12 col-form-label">Cantidad</label>
+                                <div class="col-sm-12">
+                                    <input type="number" name="amount" id="amount" class="form-control font-15" placeholder="0" min="0">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="price" class="col-sm-12 col-form-label">Precio</label>
+                                <div class="col-sm-12">
+                                    <input type="number" class="form-control" id="price" name="price" placeholder="$ 0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -94,5 +128,7 @@
     </div>
 @endsection
 @section('script')
-    <script src="{{ asset('js/productos/crear.js') }}"></script>
+    <!-- Select2 js -->
+    <script src="{{ asset('assets/plugins/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('js/productos/crear.js') }}"></script>.
 @endsection
