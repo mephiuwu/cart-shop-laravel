@@ -80,7 +80,7 @@
                                             </div>
                                             <div class="col-6">
                                                 <div class="text-right">
-                                                    <button type="button" class="btn btn-primary-rgba font-18"><i class="feather icon-shopping-bag"></i> Comprar</button>
+                                                    <button type="button" id="comprar" class="btn btn-primary-rgba font-18" onclick="addCart({{$game->id}})"><i class="feather icon-shopping-bag"></i> Comprar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,6 +92,10 @@
                     <!-- Start row -->
                 </div>
             </div>
+            <div class="card m-b-30">
+                <div class="pepito"></div>
+            </div>
+
             <div class="card m-b-30">
                 <div class="card-body ecommerce-pagination">
                     <div class="row align-items-center">
@@ -122,4 +126,47 @@
 <script src="{{ asset('assets/plugins/ion-rangeSlider/ion.rangeSlider.min.js') }}"></script>
 <!-- eCommerce Shop Page js -->
 <script src="{{ asset('assets/js/custom/custom-ecommerce-shop-page.js') }}"></script>
+<script>
+    function addCart(idGame){
+        $.ajax({
+            type: "post",
+            url: "/store/addGamesCart",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                idGame
+            },
+            dataType: "json",
+            success: function (response) {
+                if (!response.status) {
+                    Swal.fire({
+                        title: '¡Error!',
+                        text: response.message,
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                } else {
+                    Swal.fire({
+                        toast: true,
+                        position: 'bottom-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        title: '¡Ok!',
+                        text: response.message,
+                        icon: 'success',
+                    })
+
+                    refreshCart();
+                    /* $('.pepito').html(``);
+
+                    $.map(response.data, function (game, index) {
+                        $('.pepito').append(`
+                            <p>${game.name}</p>
+                        `);
+                    }); */
+                }
+            }
+        });
+    }
+</script>
 @endsection

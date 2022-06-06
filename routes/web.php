@@ -20,15 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('layouts.main');
-    });
-
+    Route::get('/', [HomeController::class, 'main'])->name('main');
+    
     Route::prefix('store')->group(function () {
         Route::get('/games', [GamesController::class, 'getGamesStore'])->name('store.games');
+        Route::get('/refreshCart', [GamesController::class, 'refreshCart'])->name('refreshCart');
+        Route::post('/addGamesCart', [GamesController::class, 'addGamesCart'])->name('store.games.cart');
     });
 });
 
