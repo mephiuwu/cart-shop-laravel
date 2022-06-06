@@ -157,13 +157,6 @@
                     })
 
                     refreshCart();
-                    /* $('.pepito').html(``);
-
-                    $.map(response.data, function (game, index) {
-                        $('.pepito').append(`
-                            <p>${game.name}</p>
-                        `);
-                    }); */
                 }
             }
         });
