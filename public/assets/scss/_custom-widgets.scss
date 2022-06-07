@@ -14,19 +14,19 @@
 }
 /* --  Widget - To Do Lists -- */
 .to-do-list {
-	.list-group-item {
-		border: none;
-	}	
+    .list-group-item {
+        border: none;
+    }   
     .custom-control-label {
         color: $black;
     }
 }
 .to-do-list-remove {
-	float: right;
+    float: right;
     vertical-align: middle;
     cursor: pointer;
     &:hover {
-    	color: $danger !important;
+        color: $danger !important;
     }
 }
 /* -- Widget - Action History -- */

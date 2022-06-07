@@ -42,7 +42,7 @@
                                     <form method="POST" action="{{ route('register') }}" id="registrar">
                                         @csrf
                                         <div class="form-head">
-                                            <a href="{{url('/')}}" class="logo"><img src="assets/images/logo.svg" class="img-fluid" alt="logo"></a>
+                                            <a href="{{url('/')}}" class="logo"><img src="{{asset('assets/images/logo.svg')}}" class="img-fluid" alt="logo"></a>
                                         </div>
 
                                         <h4 class="text-primary my-4">Registrarse</h4>

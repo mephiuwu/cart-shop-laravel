@@ -3,10 +3,10 @@
     : Custom - Responsive css :
 -----------------------------------
 */
-@media (min-width: 768px) and (max-width: 991px) {
-  body {
-    overflow-x: hidden;
-  }  
+@media (max-width: 1199px) {
+  .container-fluid {
+    width: 100%;
+  }
 }
 @media (max-width: 991px) {
   h1 {
@@ -26,9 +26,26 @@
   }
   h6 {
     font-size: 16px; 
-  }   
+  }
+  .topbar {
+    .menubar-toggle {
+      display: inline-block;
+    }
+  }
+  .navigationbar {
+    background-color: transparent;
+    padding: 0;
+  }
+  .breadcrumbbar {
+      margin: 101px 30px 0 30px;
+  }
 }
-@media (min-width: 768px) {  
+@media (min-width: 768px) and (max-width: 991px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+@media (min-width: 768px) {
   .vertical-layout {
     &.toggle-menu {
       .leftbar {
@@ -38,9 +55,6 @@
           transition: all 0.3s ease;
           &:hover {
             width: 250px; 
-            &~ .rightbar {
-                margin-left: 250px;
-            }
             .vertical-menu > li > a > span {
                 display: inline-block;
             }
@@ -96,8 +110,17 @@
       .vertical-menu li.active > .vertical-submenu {
           display: none !important;
       }
+      .profilename {
+        display:none;
+      }
+      .userbox {
+        display:none;
+      }
       .vertical-header {
         display: none;
+      }
+      .profilebar {
+          padding: 15px 15px 15px 15px;
       }
       .logobar {
         .logo {
@@ -108,7 +131,7 @@
             display: none;
           }
           img {
-            width: 40px;
+            width: 30px;
           }
         }
       }
@@ -148,7 +171,7 @@
     display: block;
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 10;
   }
   .topbar {
     display: none;
@@ -158,6 +181,9 @@
     .infobar {
       margin-right: 0;
     }
+    .menubar-toggle {
+      display: none;
+    }
   }
   .topbar-toggle-menu .topbar {
     display: block;
@@ -165,10 +191,14 @@
     right: 0;
     left: 0;
     z-index: 1;
-    margin-top: 71px;
+    margin-top: 70px;
+    border-top: 1px solid $border-color;
   }
   .menubar {
       text-align: right;
+  }
+  .contentbar {
+      padding: 30px 15px;
   }
   .footerbar {
       left: 0;
@@ -184,7 +214,7 @@
     }
   }
   .breadcrumbbar {
-    margin: 100px 0 0 0;
+    margin: 101px 15px 0 15px;
     padding: 20px 0 20px 0;
     .page-title {
       text-align: center;

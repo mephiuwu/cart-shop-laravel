@@ -14,7 +14,7 @@ class JuegosController extends Controller
     public function index()
     {
         $juegos = Juegos::all();
-        return view('juegos.index', compact('juegos'));
+        return view('admin.juegos.index', compact('juegos'));
     }
 
     public function getAll()
@@ -26,7 +26,7 @@ class JuegosController extends Controller
     public function crear()
     {
         $consoles = Consoles::all();
-        return view('juegos.crear', compact('consoles'));
+        return view('admin.juegos.crear', compact('consoles'));
     }
 
     public function processCreate(Request $request)
@@ -64,7 +64,7 @@ class JuegosController extends Controller
     {
         $juego = Juegos::with('consola')->findOrFail($id);
         $consoles = Consoles::all();
-        return view('juegos.editar', compact('juego', 'consoles'));
+        return view('admin.juegos.editar', compact('juego', 'consoles'));
     }
 
     public function processEdit(Request $request)
