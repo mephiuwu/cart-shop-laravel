@@ -43,6 +43,7 @@ class GamesController extends Controller
 
     public function refreshCart(){
         $cart = \Cart::session(Auth::user()->id)->getContent();
-        return response()->json(['status' => true, 'data' => $cart, 'message' => 'Carro refrescado con éxito.']);
+        $total = \Cart::session(Auth::user()->id)->getTotal();
+        return response()->json(['status' => true, 'data' => $cart, 'total' => $total, 'message' => 'Carro refrescado con éxito.']);
     }
 }

@@ -49,9 +49,9 @@
                         <li class="list-inline-item">
                             <div class="notifybar">
                                 <div class="dropdown">
-                                    <a class="dropdown-toggle infobar-icon" href="#" role="button" id="cartShop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/svg-icon/notifications.svg')}}" class="img-fluid" alt="cartShop">
+                                    <a class="dropdown-toggle infobar-icon" href="#" role="button" id="cartShop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/svg-icon/ecommerce.svg')}}" class="img-fluid" alt="cartShop">
                                     <span class="live-icon"></span></a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="cartShop">
+                                    <div class="dropdown-menu dropdown-menu-right" style="width: 455px" aria-labelledby="cartShop">
                                         <div class="notification-dropdown-title">
                                             <h4>Carrito</h4>                            
                                         </div>
@@ -74,7 +74,7 @@
                                         <div class="userbox">
                                             <ul class="list-unstyled mb-0">
                                                 <li class="media dropdown-item">
-                                                    <a href="#" class="profile-icon"><img src="{{ asset('assets/images/svg-icon/user.svg') }}" class="img-fluid" alt="user">My Profile</a>
+                                                    <a href="#" class="profile-icon"><img src="{{ asset('assets/images/svg-icon/user.svg') }}" class="img-fluid" alt="user">Mi perfil</a>
                                                 </li>
                                                 <li class="media dropdown-item">
                                                     <a href="#" class="profile-icon"><img src="{{ asset('assets/images/svg-icon/email.svg') }}" class="img-fluid" alt="email">Email</a>
@@ -141,18 +141,42 @@
             url: "/store/refreshCart",
             dataType: "json",
             success: function (response) {
+                let { data, total } = response;
+                
+                let formatter = new Intl.NumberFormat('es-CL', {
+                    style: 'currency',
+                    currency: 'CLP',
+                });
+                
                 $('#listCart').html('');
-                $.map(response.data, function (game, index) {
+
+                $.map(data, function (game, index){
                     $('#listCart').append(`
                         <li class="media dropdown-item">
                             <img src="${game.attributes.image}" alt="${game.name}" style="height: 50px; width: 60px"></span>
                             <div class="media-body ml-4">
                                 <h5 class="action-title">${game.name}</h5>
+                                <h6 class="action-title">${formatter.format(game.price)}</h6>
                                 <p><span class="timing">Cantidad: 1</span></p>
                             </div>
                         </li>
                     `);
                 });
+
+                if(data.length != 0){
+                    $('#listCart').append(`
+                        <li class="media dropdown-item">
+                            <div class="row media-body ml-4">
+                                <div class="col-8">
+                                    <h6 class="action-title mt-2">Total: ${formatter.format(total)}</h6>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <button type="button" class="btn btn-outline-primary"><i class="feather icon-shopping-cart"></i>  Ver carrito</button>
+                                </div>
+                            </div>
+                        </li>
+                    `);
+                }
             }
         });
     }
