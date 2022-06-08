@@ -90,6 +90,11 @@
                                                     <li class="media dropdown-item">
                                                         <a href="#" class="profile-icon"><img src="{{asset('assets/images/svg-icon/user.svg')}}" class="img-fluid" alt="user">Mi perfil</a>
                                                     </li>
+                                                    @if (Auth::user()->rol_id == 1 || Auth::user()->rol_id == 2)
+                                                        <li class="media dropdown-item">
+                                                            <a href="{{route('admin')}}" class="profile-icon"><img src="{{asset('assets/images/svg-icon/settings.svg')}}" class="img-fluid" alt="admin">Administrar</a>
+                                                        </li>
+                                                    @endif
                                                     <li class="media dropdown-item">
                                                         <a href="#" class="profile-icon"><img src="{{asset('assets/images/svg-icon/email.svg')}}" class="img-fluid" alt="email">Email</a>
                                                     </li>                                                        
