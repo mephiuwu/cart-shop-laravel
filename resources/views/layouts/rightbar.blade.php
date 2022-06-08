@@ -63,13 +63,13 @@
                             <li class="list-inline-item">
                                 <div class="notifybar">
                                     <div class="dropdown">
-                                        <a class="dropdown-toggle infobar-icon" href="#" role="button" id="cartShop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/svg-icon/ecommerce.svg')}}" class="img-fluid" alt="cartShop">
+                                        <a class="dropdown-toggle infobar-icon" role="button" id="cartShop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/svg-icon/ecommerce.svg')}}" class="img-fluid" alt="cartShop">
                                         <span class="live-icon"></span></a>
-                                        <div class="dropdown-menu dropdown-menu-right" style="width: 455px" aria-labelledby="cartShop">
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-cart" style="width: 455px;" aria-labelledby="cartShop">
                                             <div class="notification-dropdown-title">
                                                 <h4>Carro</h4>                            
                                             </div>
-                                            <ul class="list-unstyled" id="listCart">
+                                            <ul class="list-unstyled" id="listCart" style="max-height: 600px; overflow-y: scroll">
                                             </ul>
                                         </div>
                                     </div>
@@ -186,6 +186,10 @@
         refreshCart();
     });
 
+    $('.dropdown-cart').on('click', function (e) {
+        e.stopPropagation();
+    });
+
     function refreshCart(){
         $.ajax({
             type: "get",
@@ -208,7 +212,7 @@
                             <div class="media-body ml-4">
                                 <h5 class="action-title">${game.name}</h5>
                                 <h6 class="action-title">${formatter.format(game.price)}</h6>
-                                <p><span class="timing">Cantidad: 1</span></p>
+                                <p><span class="timing">Cantidad: ${game.quantity}</span></p>
                             </div>
                         </li>
                     `);
@@ -216,7 +220,7 @@
 
                 if(data.length != 0){
                     $('#listCart').append(`
-                        <li class="media dropdown-item">
+                        <li class="media dropdown-item" style="position: ;">
                             <div class="row media-body ml-4">
                                 <div class="col-7">
                                     <h6 class="action-title mt-2">Total: ${formatter.format(total)}</h6>

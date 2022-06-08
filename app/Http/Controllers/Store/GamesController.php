@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
 use App\Models\Juegos;
-use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 class GamesController extends Controller
@@ -18,11 +18,11 @@ class GamesController extends Controller
     public function addGamesCart(Request $request){
         try {
             $game = Juegos::find($request->idGame);
-
+            
             if (!$game) {
                 throw 'El juego seleccionado no existe.';
             }
-            
+
             \Cart::session(Auth::user()->id)->add([
                 'id' => $game->id,
                 'name' => $game->nombre,

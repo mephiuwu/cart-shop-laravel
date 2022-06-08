@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JuegosController;
 use App\Http\Controllers\Store\GamesController;
@@ -32,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth','authAdmin'])->group(function () {
     Route::prefix('adm')->group(function () {
+        Route::get('/', [AdminController::class, 'index'])->name('admin');
+
         Route::prefix('/juegos')->group(function () {
             //Vistas
             Route::get('/', [JuegosController::class, 'index'])->name('juegos.index');

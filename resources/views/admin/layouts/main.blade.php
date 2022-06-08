@@ -41,6 +41,7 @@
         <script src="{{ asset('admin/assets/js/jquery.slimscroll.js') }}"></script>
         <script src="{{ asset('admin/assets/js/vertical-menu.js') }}"></script> 
         <script src="{{ asset('admin/assets/plugins/switchery/switchery.min.js') }}"></script> 
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         @yield('script')
         <!-- Core JS -->
         <script src="{{ asset('admin/assets/js/core.js') }}"></script>

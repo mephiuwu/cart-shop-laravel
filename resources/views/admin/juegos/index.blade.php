@@ -88,7 +88,7 @@
                     let id = id_juego;
                     $.ajax({
                         type: "post",
-                        url: "/juegos/eliminar",
+                        url: "/adm/juegos/eliminar",
                         data: {
                             _token: "{{ csrf_token() }}",
                             "id": id,
