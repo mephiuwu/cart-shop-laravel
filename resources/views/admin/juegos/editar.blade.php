@@ -33,7 +33,7 @@
                                 <label class="col-sm-12 col-form-label">Consola</label>
                                 <div class="col-sm-12">
                                     <select class="select2-single form-control" name="console">
-                                        <option value="{{$juego->consola->id}}" selected disabled hidden>{{$juego->consola->nombre}}</option>
+                                        <option value="{{$juego->consola->id}}" selected hidden>{{$juego->consola->nombre}}</option>
                                         @foreach ($consoles as $console)
                                             <option value="{{$console->id}}">{{$console->nombre}}</option>
                                         @endforeach
@@ -106,7 +106,7 @@
                             <div class="form-group row">
                                 <label for="quantity" class="col-sm-12 col-form-label">Cantidad</label>
                                 <div class="col-sm-12">
-                                    <input type="number" name="quantity" id="quantity" class="form-control font-15" placeholder="0" value="{{$juego->amount}}" min="0">
+                                    <input type="number" name="quantity" id="quantity" class="form-control font-15" placeholder="0" value="{{$juego->quantity}}" min="0">
                                 </div>
                             </div>
                             <div class="form-group row">

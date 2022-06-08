@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Consoles;
 use App\Models\Juegos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
+
 
 class JuegosController extends Controller
 {
@@ -42,13 +44,12 @@ class JuegosController extends Controller
                 $path = $request->imagen->store('public/images/games');
                 $request->imagen = \Storage::url($path);
             }
-
             //pasa la validación
             $juego = Juegos::create([
                 'nombre' => $request->nombre,
                 'descripcion' => $request->descripcion,
                 'imagen' => $request->imagen,
-                'quantity' => $request->quantity,
+                'quantity' => intval($request->quantity),
                 'price' => $request->price,
                 'estado' => $request->estado,
                 'console_id' => $request->console,

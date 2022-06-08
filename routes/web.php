@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\JuegosController;
+use App\Http\Controllers\Admin\JuegosController;
 use App\Http\Controllers\Store\GamesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
