@@ -11,7 +11,7 @@ $('.dropdown-cart').on('click', function (e) {
 function refreshCart(){
     $.ajax({
         type: "get",
-        url: "/store/refreshCart",
+        url: "/cart/refreshCart",
         dataType: "json",
         success: function (response) {
             let { data, total } = response;
@@ -44,7 +44,7 @@ function refreshCart(){
                                 <h6 class="action-title mt-2">Total: ${formatter.format(total)}</h6>
                             </div>
                             <div class="col-5 text-right">
-                                <button type="button" class="btn btn-outline-primary"><i class="feather icon-shopping-cart"></i>  Ver carrito</button>
+                                <a class="btn btn-primary" href="/cart" role="button"><i class="feather icon-shopping-cart mr-1"></i> Ver carrito</a>
                             </div>
                         </div>
                     </li>

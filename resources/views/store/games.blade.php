@@ -93,23 +93,16 @@
                 </div>
             </div>
             <div class="card m-b-30">
-                <div class="pepito"></div>
-            </div>
-
-            <div class="card m-b-30">
                 <div class="card-body ecommerce-pagination">
                     <div class="row align-items-center">
                         <div class="col-lg-12 col-xl-6">
-                            <p>Showing 1 to 2 of 12 entries</p>
+                            <p>Mostrando {{$games->count()}} de {{$games->total()}} juegos</p>
                         </div>
                         <div class="col-lg-12 col-xl-6">
                             <nav aria-label="Page navigation example">
-                            <ul class="pagination mb-0">
-                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
+                                <ul class="pagination mb-0">
+                                    {{ $games->links() }}
+                                </ul>
                             </nav>
                         </div>
                     </div>                                
@@ -130,7 +123,7 @@
     function addCart(idGame){
         $.ajax({
             type: "post",
-            url: "/store/addGamesCart",
+            url: "/store/games/addCart",
             data: {
                 "_token": "{{ csrf_token() }}",
                 idGame

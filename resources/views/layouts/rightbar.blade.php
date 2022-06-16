@@ -76,42 +76,48 @@
                                 </div>
                             </li>
                             <li class="list-inline-item">
-                                <div class="profilebar">
-                                    <div class="dropdown">
-                                      <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/users/profile.svg')}}" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
-                                            <div class="dropdown-item">
-                                                <div class="profilename">
-                                                    <h5>{{ Auth::user()->name }}</h5>
+                                @if (Auth::check())
+                                    <div class="profilebar">
+                                        <div class="dropdown">
+                                        <a class="dropdown-toggle" href="#" role="button" id="profilelink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/users/profile.svg')}}" class="img-fluid" alt="profile"><span class="feather icon-chevron-down live-icon"></span></a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profilelink">
+                                                <div class="dropdown-item">
+                                                    <div class="profilename">
+                                                        <h5>{{ Auth::user()->name }}</h5>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="userbox">
-                                                <ul class="list-unstyled mb-0">
-                                                    <li class="media dropdown-item">
-                                                        <a href="#" class="profile-icon"><img src="{{asset('assets/images/svg-icon/user.svg')}}" class="img-fluid" alt="user">Mi perfil</a>
-                                                    </li>
-                                                    @if (Auth::user()->rol_id == 1 || Auth::user()->rol_id == 2)
+                                                <div class="userbox">
+                                                    <ul class="list-unstyled mb-0">
                                                         <li class="media dropdown-item">
-                                                            <a href="{{route('admin')}}" class="profile-icon"><img src="{{asset('assets/images/svg-icon/settings.svg')}}" class="img-fluid" alt="admin">Administrar</a>
+                                                            <a href="#" class="profile-icon"><img src="{{asset('assets/images/svg-icon/user.svg')}}" class="img-fluid" alt="user">Mi perfil</a>
                                                         </li>
-                                                    @endif
-                                                    <li class="media dropdown-item">
-                                                        <a href="#" class="profile-icon"><img src="{{asset('assets/images/svg-icon/email.svg')}}" class="img-fluid" alt="email">Email</a>
-                                                    </li>                                                        
-                                                    <li class="media dropdown-item">
-                                                        <a class="profile-icon" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                                            <img src="{{ asset('assets/images/svg-icon/logout.svg') }}" class="img-fluid" alt="logout">
-                                                            Salir
-                                                        </a>
-                                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                            @csrf
-                                                        </form>
-                                                    </li>
-                                                </ul>
+                                                        @if (Auth::user()->rol_id == 1 || Auth::user()->rol_id == 2)
+                                                            <li class="media dropdown-item">
+                                                                <a href="{{route('admin')}}" class="profile-icon"><img src="{{asset('assets/images/svg-icon/settings.svg')}}" class="img-fluid" alt="admin">Administrar</a>
+                                                            </li>
+                                                        @endif
+                                                        <li class="media dropdown-item">
+                                                            <a href="#" class="profile-icon"><img src="{{asset('assets/images/svg-icon/email.svg')}}" class="img-fluid" alt="email">Email</a>
+                                                        </li>                                                        
+                                                        <li class="media dropdown-item">
+                                                            <a class="profile-icon" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                                <img src="{{ asset('assets/images/svg-icon/logout.svg') }}" class="img-fluid" alt="logout">
+                                                                Salir
+                                                            </a>
+                                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                                @csrf
+                                                            </form>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>                                   
+                                @else
+                                    <div class="profilebar">
+                                        <h6><a href="{{route('login')}}">Iniciar sesión</a> / <a href="{{route('register')}}">Registrarse</a> </h6>
+                                    </div>
+                                @endif
                             </li>
                             <li class="list-inline-item menubar-toggle">
                                 <div class="menubar">

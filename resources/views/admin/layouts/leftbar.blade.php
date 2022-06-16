@@ -24,7 +24,7 @@
             </ul>
         </div>
         <div class="contenedor">
-            <button href="{{route('main')}}" class="btn btn-primary goCart"><i class="feather icon-shopping-cart mr-2"></i>Ir a tienda</button>
+            <button href="{{route('home')}}" class="btn btn-primary goCart"><i class="feather icon-shopping-cart mr-2"></i>Ir a tienda</button>
         </div>
         <!-- End Navigationbar -->
     </div>

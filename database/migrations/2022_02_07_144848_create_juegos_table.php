@@ -22,7 +22,7 @@ class CreateJuegosTable extends Migration
             $table->integer('quantity');
             $table->integer('price');
             $table->enum('estado',['1','0'])->default('1');
-            $table->foreignId('console_id')->references('id')->on('consoles')->onDelete('set null');
+            $table->foreignId('console_id')->nullable()->constrained('consoles')->onDelete('set null');
             $table->timestamps();
         });
     }

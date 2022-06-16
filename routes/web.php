@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\JuegosController;
+use App\Http\Controllers\Store\CartController;
 use App\Http\Controllers\Store\GamesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,16 +20,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/', [HomeController::class, 'main'])->name('home');
+
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/', [HomeController::class, 'main'])->name('main');
-    
-    Route::prefix('store')->group(function () {
-        Route::get('/games', [GamesController::class, 'getGamesStore'])->name('store.games');
-        Route::get('/refreshCart', [GamesController::class, 'refreshCart'])->name('refreshCart');
-        Route::post('/addGamesCart', [GamesController::class, 'addGamesCart'])->name('store.games.cart');
+Route::prefix('store')->group(function () {
+    Route::prefix('/games')->group(function () {
+        Route::get('/', [GamesController::class, 'getStore'])->name('store.games');
+        Route::post('/addCart', [GamesController::class, 'addCart'])->name('store.games.cart');
     });
+});
+
+Route::prefix('cart')->group(function(){
+    Route::get('/', [CartController::class, 'index'])->name('cart');
+    Route::get('/refreshCart', [CartController::class, 'refreshCart'])->name('cart.refreshCart');
 });
 
 Route::middleware(['auth','authAdmin'])->group(function () {

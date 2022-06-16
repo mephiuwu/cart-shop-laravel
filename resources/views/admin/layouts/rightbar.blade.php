@@ -62,7 +62,7 @@
                                                     <a href="#" class="profile-icon"><img src="{{ asset('admin/assets/images/svg-icon/user.svg') }}" class="img-fluid" alt="user">Mi perfil</a>
                                                 </li>
                                                 <li class="media dropdown-item">
-                                                    <a href="{{route('main')}}" class="profile-icon"><img src="{{ asset('admin/assets/images/svg-icon/settings.svg') }}" class="img-fluid" alt="user">Tienda</a>
+                                                    <a href="{{route('home')}}" class="profile-icon"><img src="{{ asset('admin/assets/images/svg-icon/settings.svg') }}" class="img-fluid" alt="user">Tienda</a>
                                                 </li>
                                                 <li class="media dropdown-item">
                                                     <a href="#" class="profile-icon"><img src="{{ asset('admin/assets/images/svg-icon/email.svg') }}" class="img-fluid" alt="email">Email</a>
