@@ -47,7 +47,7 @@
                             <div class="col-lg-4 col-xl-3">
                                 <div class="product-bar m-b-30">
                                     <div class="product-head">
-                                        <a href="{{url('/ecommerce-single-product')}}">
+                                        <a href="{{url('/store/games/single/'.$game->id)}}">
                                             <img src="{{ $game->imagen }}" class="img-fluid" alt="product" style="height: 380px; width: 380px;">
                                         </a>
                                         {{-- <p><span class="badge badge-success font-14">25% off</span></p> --}}

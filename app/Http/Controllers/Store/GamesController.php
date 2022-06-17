@@ -35,6 +35,10 @@ class GamesController extends Controller
         } catch (\Throwable $th) {
             return response()->json(['status' => false, 'message' => 'Ha ocurrido un error interno', 'th' => $th->getMessage()]);
         }
-        
+    }
+
+    public function single($id){
+        $game = Juegos::find($id);
+        return view('store.games.single', compact('game'));
     }
 }

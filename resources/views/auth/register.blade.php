@@ -48,7 +48,7 @@
                                         <h4 class="text-primary my-4">Registrarse</h4>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="username" name="name" placeholder="Username" required>
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="username" name="name" placeholder="Username" autocomplete="off" required>
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

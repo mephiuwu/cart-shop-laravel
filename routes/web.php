@@ -27,6 +27,7 @@ Auth::routes();
 Route::prefix('store')->group(function () {
     Route::prefix('/games')->group(function () {
         Route::get('/', [GamesController::class, 'getStore'])->name('store.games');
+        Route::get('/single/{id}', [GamesController::class, 'single'])->name('store.games.single');
         Route::post('/addCart', [GamesController::class, 'addCart'])->name('store.games.cart');
     });
 });
