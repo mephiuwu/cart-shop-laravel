@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
+use App\Models\CommentUserGame;
 use App\Models\Juegos;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,10 @@ class GamesController extends Controller
 
     public function single($id){
         $game = Juegos::find($id);
-        return view('store.games.single', compact('game'));
+        $games = Juegos::with('consola')->where('id','!=',$game->id)->where(function($query) use ($game){
+            $query->orWhere('console_id', $game->console_id);
+        })->get();
+        $comments = CommentUserGame::with('user')->where('game_id', $game->id)->get();
+        return view('store.games.single', compact('game', 'comments', 'games'));
     }
 }

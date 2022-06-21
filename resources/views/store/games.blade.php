@@ -75,7 +75,7 @@
                                         <div class="row align-items-center">
                                             <div class="col-6">
                                                 <div class="text-left">
-                                                    <h5 class="f-w-7 mb-0">$ {{$game->price}}</h5>
+                                                    <h5 class="f-w-7 mb-0">$ {{ number_format($game->price, 0, ',', '.')}}</h5>
                                                 </div>
                                             </div>
                                             <div class="col-6">

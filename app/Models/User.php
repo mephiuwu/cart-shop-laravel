@@ -48,4 +48,8 @@ class User extends Authenticatable
     public function rol(){
         return $this->belongsTo(roles::class,'rol_id');
     }
+
+    public function comments(){
+        return $this->hasMany(CommentUserGame::class,'user_id');
+    }
 }

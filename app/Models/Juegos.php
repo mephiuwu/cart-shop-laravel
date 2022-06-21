@@ -14,4 +14,8 @@ class Juegos extends Model
     public function consola(){
         return $this->belongsTo(Consoles::class,'console_id');
     }
+
+    public function comments(){
+        return $this->hasMany(CommentUserGame::class,'game_id');
+    }
 }
