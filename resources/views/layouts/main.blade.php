@@ -19,8 +19,17 @@
         <link href="{{ asset('assets/css/flag-icon.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
         <!-- End CSS -->
+
+        <style>
+            .bodyStore{
+                background: url(/assets/images/gamer/battlefield.jpg);
+                background-size: cover;
+                background-position: center;
+                min-height: 100vh;
+            }
+        </style>
     </head>
-    <body class="horizontal-layout">
+    <body class="horizontal-layout bodyStore">
         <!-- Start Containerbar -->
         <div id="containerbar" class="container-fluid">
             <!-- Start Rightbar -->

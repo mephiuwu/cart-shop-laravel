@@ -26935,13 +26935,12 @@ mark {
 }
 
 .topbar {
-  background-color: #ffffff;
-  padding: 15px 30px;
+  background-color: #ffffffcc;
+  padding: 10px 30px;
   position: fixed;
   z-index: 10;
   left: 0;
   right: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 .topbar .dropdown-toggle::after {
   display: none;
@@ -27340,13 +27339,13 @@ mark {
 }
 
 .navigationbar {
-  background-color: #ffffff;
+  background-color: #ffffffcc;
   padding: 15px 30px;
   position: fixed;
   z-index: 1;
   left: 0;
   right: 0;
-  top: 70px;
+  top: 67px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 
@@ -33370,7 +33369,7 @@ input[type=range]:focus {
 ---------------------------------------
 */
 .authenticate-bg {
-  background: url(../images/authentication/authentication-bg.svg);
+  background: url(../images/authentication/fondo_gamer.jpg);
   background-size: cover;
   background-position: center;
   min-height: 100vh;

@@ -10,6 +10,11 @@
 @endsection
 
 @section('rightbar-content')
+<style>
+    .card{
+        background-color: #ffffffde !important;
+    }
+</style>
 <div class="contentbar">                
     <div class="row">
         <div class="col-lg-12 col-xl-12">

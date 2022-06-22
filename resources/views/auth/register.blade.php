@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Orbiter is a bootstrap minimal & clean admin template">
-    <meta name="keywords" content="admin, admin panel, admin template, admin dashboard, responsive, bootstrap 4, ui kits, ecommerce, web app, crm, cms, html, sass support, scss">
-    <meta name="author" content="Themesbox">
+    <meta name="description" content="GameShop es una tienda de vídeojuegos, consolas, etc.">
+    <meta name="keywords" content="games, juegos, store, tienda, storegame, consoles, consolas">
+    <meta name="author" content="Mephi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Orbiter - Register</title>
+    <title>GameShop - Registrar</title>
     <!-- Fevicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
     <!-- Start CSS -->
@@ -34,7 +34,7 @@
                 <!-- Start row -->
                 <div class="row no-gutters align-items-center justify-content-center">
                     <!-- Start col -->
-                    <div class="col-md-6 col-lg-5">
+                    <div class="col-md-10 col-lg-8">
                         <!-- Start Auth Box -->
                         <div class="auth-box-right">
                             <div class="card">
@@ -42,18 +42,57 @@
                                     <form method="POST" action="{{ route('register') }}" id="registrar">
                                         @csrf
                                         <div class="form-head">
-                                            <a href="{{url('/')}}" class="logo"><img src="{{asset('assets/images/logo.svg')}}" class="img-fluid" alt="logo"></a>
+                                            <a href="{{url('/')}}" class="logo"><img src="{{asset('assets/images/logo.png')}}" class="img-fluid" alt="logo"></a>
                                         </div>
 
-                                        <h4 class="text-primary my-4">Registrarse</h4>
+                                        <h4 class="text-primary my-3">Regístrate</h4>
+                                        <p>Ingresa tus datos personales y disfruta de una experiencia de compra más rápida.</p>
 
                                         <div class="form-group">
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="username" name="name" placeholder="Username" autocomplete="off" required>
-                                            @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                            <div class="row mt-4">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Nombre" autocomplete="off" required>
+                                                    @error('name')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control @error('surnames') is-invalid @enderror" id="surnames" name="surnames" placeholder="Apellidos" autocomplete="off" required>
+                                                    @error('surnames')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control @error('rut') is-invalid @enderror" id="rut" name="rut" placeholder="RUT" autocomplete="off" required>
+                                                    @error('rut')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1" style="height: 36.5px">+569</span>
+                                                        </div>
+                                                        <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" placeholder="Número" autocomplete="off" required>
+                                                    </div>
+                                                    @error('phone')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="form-group">

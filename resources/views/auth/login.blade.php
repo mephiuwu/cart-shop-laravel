@@ -34,9 +34,8 @@
                                 <div class="card-body">
                                     <form action="{{ route('login') }}" method="POST">
                                         @csrf
-
                                         <div class="form-head">
-                                            <a href="{{url('/')}}" class="logo"><img src="{{ asset('assets/images/logo.svg') }}" class="img-fluid" alt="logo"></a>
+                                            <a href="{{url('/')}}" class="logo"><img src="{{ asset('assets/images/logo.png') }}" class="img-fluid" alt="logo"></a>
                                         </div>                                        
                                         <h4 class="text-primary my-4">Ingresar</h4>
                                         <div class="form-group">
