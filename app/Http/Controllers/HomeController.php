@@ -28,6 +28,6 @@ class HomeController extends Controller
 
     public function main()
     {
-        return view('layouts.main');
+        return view('store.index');
     }
 }

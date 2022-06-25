@@ -13,14 +13,20 @@
             <ul class="vertical-menu">
                 <li>
                     <a href="javaScript:void();">
+                        <img src={{ asset('admin/assets/images/svg-icon/dashboard.svg') }} class="img-fluid" alt="dashboard"><span>Inicio</span><i class="feather icon-chevron-right pull-right"></i>
+                    </a>
+                    <ul class="vertical-submenu">
+                        <li><a href="{{route('juegos.index')}}">Carousel</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javaScript:void();">
                         <img src={{ asset('admin/assets/images/svg-icon/dashboard.svg') }} class="img-fluid" alt="dashboard"><span>Modulos</span><i class="feather icon-chevron-right pull-right"></i>
                     </a>
                     <ul class="vertical-submenu">
                         <li><a href="{{route('juegos.index')}}">Juegos</a></li>
                     </ul>
                 </li>
-            </ul>
-            <ul class="vertical-menu text-center">
             </ul>
         </div>
         <div class="contenedor">

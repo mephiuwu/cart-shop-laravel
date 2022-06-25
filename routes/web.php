@@ -53,6 +53,10 @@ Route::middleware(['auth','authAdmin'])->group(function () {
             Route::post('/processEdit', [JuegosController::class, 'processEdit'])->name('juegos.processEdit');
             Route::post('/eliminar', [JuegosController::class, 'eliminar'])->name('juegos.eliminar');
         });
+
+        Route::prefix('/inicio')->group(function () {
+            Route::get('/', [JuegosController::class, 'index'])->name('admin.inicio');
+        });
     });
 });
 
